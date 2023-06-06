@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Carpark;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CarPark extends Model
+class Carpark extends Model
 {
-    use SoftDeletes, HasFactory, BeasModel;
+    use SoftDeletes, HasFactory;
 
-    protected $table = "car_park";
+    protected $table = "carparks";
 
     /**
      * The attributes that are mass assignable.
@@ -19,48 +20,42 @@ class CarPark extends Model
      */
     protected $fillable = [
         'uuid',
-        'name',
-        'address_id',
         'code',
-        'number_lot',
-        'location_id',
-        'availablelots',
-        'availabledeck',
-        'available_lots',
-        'available_deck',
+        'name',
+        'lots',
         'status',
-        'admin_id',
+        'block',
+        'floor',
+        'unit',
+        'address_1',
+        'address_2',
+        'postal_code',
+        'city',
+        'state',
+        'lat',
+        'long',
+        'location_id',
     ];
 
-    protected $visible = ['id', 'name', 'address_id', 'code', 'number_lot', 'location_id', 'availablelots', 'availabledeck', 'available_lots', 'available_deck', 'status', 'address', 'location', 'admin_id', 'created_at', 'admin', 'carparkVehicle']; //返回字段
+    protected $visible = ['uuid', 'code', 'name', 'lots', 'status', 'block', 'floor', 'unit', 'address_1', 'address_2', 'postal_code', 'city', 'state', 'lat', 'long', 'location_id', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
-    //关联Address表
-    public function address()
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
     {
-        return $this->hasOne(Address::class, 'id', 'address_id');
-    }
-    //关联 location 表
-    public function location()
-    {
-        return $this->hasOne(CarParkLocation::class, 'id', 'location_id');
-    }
-    //关联 admin
-    public function admin()
-    {
-        return $this->hasOne(Admin::class, 'id', 'admin_id');
+        return 'uuid';
     }
 
-    //站点下的车辆
-    public function carparkVehicle()
+    public function getCreatedAtAttribute($value)
     {
-        return $this->belongsToMany(Vehicles::class, 'vehicle_car_park', 'car_park_id', 'vehicle_id');
-        //  return  $this->hasMany(VehicleCarParks::class,'car_park_id','id');
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 
-    protected function serializeDate(\DateTimeInterface $date)
+    public function getUpdatedAtAttribute($value)
     {
-        return $date->format($this->dateFormat ?: 'Y-m-d H:i');
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
-
-
 }
