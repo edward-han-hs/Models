@@ -48,6 +48,31 @@ class Order extends Model
         return 'uuid';
     }
 
+    public function order_extensions()
+    {
+        return $this->hasMany('App\Models\Order\OrderExtension');
+    }
+
+    public function order_item()
+    {
+        return $this->morphOne('App\Models\Order\OrderItemable', 'itemable');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User\User');
+    }
+
+    public function vehicle()
+    {
+        return $this->belongsTo('App\Models\Vehicle\Vehicle');
+    }
+
+    public function carpark()
+    {
+        return $this->belongsTo('App\Models\Carpark\Carpark');
+    }
+
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('Y-m-d H:i:s');
