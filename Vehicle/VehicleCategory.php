@@ -23,9 +23,12 @@ class VehicleCategory extends Model
         'code',
         'name',
         'desc',
+        'peak_rate',
+        'off_peak_rate',
+        'super_off_peak_rate',
     ];
 
-    protected $visible = ['uuid', 'code', 'name', 'desc', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['uuid', 'code', 'name', 'desc', 'peak_rate', 'off_peak_rate', 'super_off_peak_rate', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
     /**
      * Get the route key for the model.
