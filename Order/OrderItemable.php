@@ -11,7 +11,7 @@ class OrderItemable extends Model
 {
     use SoftDeletes, HasFactory;
 
-    protected $table = "order_itemable";
+    protected $table = "order_itemables";
 
     /**
      * The attributes that are mass assignable.
