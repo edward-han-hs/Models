@@ -3,14 +3,10 @@
 namespace App\Models\Setting;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class Holiday extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "holidays";
 
     /**
@@ -35,15 +31,5 @@ class Holiday extends Model
     public function getRouteKeyName()
     {
         return 'uuid';
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }

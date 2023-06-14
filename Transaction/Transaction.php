@@ -3,14 +3,10 @@
 namespace App\Models\Transaction;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class Transaction extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "transactions";
 
     /**
@@ -31,15 +27,5 @@ class Transaction extends Model
     public function detail()
     {
         return $this->morphOne('App\Models\Transaction\Transactionnable', 'transactionnable');
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }

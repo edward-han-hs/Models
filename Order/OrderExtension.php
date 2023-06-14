@@ -3,14 +3,10 @@
 namespace App\Models\Order;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class OrderExtension extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "order_extensions";
 
     /**
@@ -46,15 +42,5 @@ class OrderExtension extends Model
     public function order_item()
     {
         return $this->morphOne('App\Models\Order\OrderItemable', 'itemable');
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }

@@ -3,14 +3,10 @@
 namespace App\Models\Vehicle;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class Vehicle extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "vehicles";
 
     /**
@@ -71,15 +67,5 @@ class Vehicle extends Model
     public function model()
     {
         return $this->belongsTo('App\Models\Vehicle\VehicleModel');
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }

@@ -3,14 +3,10 @@
 namespace App\Models\Period;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class PeriodDetail extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "period_details";
 
     /**
@@ -52,15 +48,5 @@ class PeriodDetail extends Model
     public function period()
     {
         return $this->belongsTo('App\Models\Period\Period');
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }

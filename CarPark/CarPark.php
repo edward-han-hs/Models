@@ -3,14 +3,10 @@
 namespace App\Models\Carpark;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class Carpark extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "carparks";
 
     /**
@@ -54,13 +50,4 @@ class Carpark extends Model
         return $this->hasMany('App\Models\Vehicle\Vehicle');
     }
 
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
 }

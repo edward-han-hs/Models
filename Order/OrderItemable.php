@@ -3,14 +3,10 @@
 namespace App\Models\Order;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Abstracts\Model;
 
 class OrderItemable extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $table = "order_itemables";
 
     /**
@@ -47,15 +43,5 @@ class OrderItemable extends Model
     public function itemable()
     {
         return $this->morphTo();
-    }
-
-    public function getCreatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
     }
 }
