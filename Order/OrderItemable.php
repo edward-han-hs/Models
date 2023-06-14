@@ -21,7 +21,7 @@ class OrderItemable extends Model
     protected $fillable = [
         'itemable_type',
         'itemable_id',
-        'charges',
+        'vehicle_price',
         'cdw',
         'mte',
         'gst',
@@ -32,7 +32,7 @@ class OrderItemable extends Model
         'redeemed_point',
     ];
 
-    protected $visible = ['itemable_type', 'itemable_id', 'charges', 'cdw', 'mte', 'gst', 'subtotal', 'total', 'penalty_charge', 'mileage_charge', 'redeemed_point', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['itemable_type', 'itemable_id', 'vehicle_price', 'cdw', 'mte', 'gst', 'subtotal', 'total', 'penalty_charge', 'mileage_charge', 'redeemed_point', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
     /**
      * Get the route key for the model.
