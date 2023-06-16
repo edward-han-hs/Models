@@ -54,6 +54,11 @@ class Order extends Model
         return $this->morphOne('App\Models\Order\OrderItemable', 'itemable');
     }
 
+    public function order_report_damages()
+    {
+        return $this->hasMany('App\Models\Order\OrderReportDamage');
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User\User');
