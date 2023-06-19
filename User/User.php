@@ -69,4 +69,9 @@ class User extends Model
     {
         return 'uuid';
     }
+
+    public function bookmarks()
+    {
+        return $this->hasMany('App\Models\User\Bookmark');
+    }
 }
