@@ -74,4 +74,9 @@ class User extends Model
     {
         return $this->hasMany('App\Models\User\Bookmark');
     }
+
+    public function vouchers()
+    {
+        return $this->hasMany('App\Models\User\UserVoucher');
+    }
 }
