@@ -5,9 +5,9 @@ namespace App\Models\Order;
 use Carbon\Carbon;
 use App\Abstracts\Model;
 
-class OrderExtension extends Model
+class OrderDetail extends Model
 {
-    protected $table = "order_extensions";
+    protected $table = "order_details";
 
     /**
      * The attributes that are mass assignable.
@@ -20,9 +20,20 @@ class OrderExtension extends Model
         'order_id',
         'start_time',
         'end_time',
+        'price_0',
+        'price_1',
+        'price_2',
+        'cdw',
+        'mte',
+        'gst',
+        'subtotal',
+        'total',
+        'penalty_charge',
+        'mileage_charge',
+        'redeemed_point',
     ];
 
-    protected $visible = ['uuid', 'order_no', 'order_id', 'start_time', 'end_time', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['uuid', 'order_no', 'order_id', 'start_time', 'end_time', 'price_0', 'price_1', 'price_2', 'cdw', 'mte', 'gst', 'subtotal', 'total', 'penalty_charge', 'mileage_charge', 'redeemed_point', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
     /**
      * Get the route key for the model.
@@ -37,10 +48,5 @@ class OrderExtension extends Model
     public function order()
     {
         return $this->belongsTo('App\Models\Order\Order');
-    }
-
-    public function order_item()
-    {
-        return $this->morphOne('App\Models\Order\OrderItemable', 'itemable');
     }
 }

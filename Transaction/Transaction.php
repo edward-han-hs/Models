@@ -22,10 +22,5 @@ class Transaction extends Model
         'callback',
     ];
 
-    protected $visible = ['order_id', 'type', 'status', 'status', 'response', 'callback', 'created_by', 'updated_by', 'created_at', 'updated_at', 'order_extensions', 'order_item'];
-
-    public function detail()
-    {
-        return $this->morphOne('App\Models\Transaction\Transactionnable', 'transactionnable');
-    }
+    protected $visible = ['order_id', 'type', 'status', 'status', 'response', 'callback', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 }

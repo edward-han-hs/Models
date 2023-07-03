@@ -32,7 +32,7 @@ class Order extends Model
         'cancelled_at',
     ];
 
-    protected $visible = ['uuid', 'order_no', 'status', 'user_id', 'vehicle_id', 'carpark_id', 'start_time', 'end_time', 'actual_start_time', 'actual_end_time', 'start_mileage', 'end_mileage', 'rating', 'rating_desc', 'cancelled_at', 'created_by', 'updated_by', 'created_at', 'updated_at', 'order_extensions', 'order_item'];
+    protected $visible = ['uuid', 'order_no', 'status', 'user_id', 'vehicle_id', 'carpark_id', 'start_time', 'end_time', 'actual_start_time', 'actual_end_time', 'start_mileage', 'end_mileage', 'rating', 'rating_desc', 'cancelled_at', 'created_by', 'updated_by', 'created_at', 'updated_at', 'order_details'];
 
     /**
      * Get the route key for the model.
@@ -44,14 +44,9 @@ class Order extends Model
         return 'uuid';
     }
 
-    public function order_extensions()
+    public function order_details()
     {
-        return $this->hasMany('App\Models\Order\OrderExtension');
-    }
-
-    public function order_item()
-    {
-        return $this->morphOne('App\Models\Order\OrderItemable', 'itemable');
+        return $this->hasMany('App\Models\Order\OrderDetail');
     }
 
     public function order_report_damages()
