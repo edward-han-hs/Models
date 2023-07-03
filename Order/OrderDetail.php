@@ -31,9 +31,10 @@ class OrderDetail extends Model
         'penalty_charge',
         'mileage_charge',
         'redeemed_point',
+        'tax_rate',
     ];
 
-    protected $visible = ['uuid', 'order_no', 'order_id', 'start_time', 'end_time', 'price_0', 'price_1', 'price_2', 'cdw', 'mte', 'gst', 'subtotal', 'total', 'penalty_charge', 'mileage_charge', 'redeemed_point', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['uuid', 'order_no', 'order_id', 'start_time', 'end_time', 'price_0', 'price_1', 'price_2', 'cdw', 'mte', 'gst', 'subtotal', 'total', 'penalty_charge', 'mileage_charge', 'redeemed_point', 'tax_rate', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
     /**
      * Get the route key for the model.
