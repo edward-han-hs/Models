@@ -17,8 +17,8 @@ class StatusCode extends Model
         'model_type',
         'status',
         'name',
-        'desc',
+        'description',
     ];
 
-    protected $visible = ['model_type', 'status', 'name', 'desc', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['model_type', 'status', 'name', 'description', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 }

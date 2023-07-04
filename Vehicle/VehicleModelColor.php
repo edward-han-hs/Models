@@ -17,8 +17,8 @@ class VehicleModelColor extends Model
     protected $fillable = [
         'model_id',
         'name',
-        'desc',
+        'description',
     ];
 
-    protected $visible = ['model_id', 'name', 'desc', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['model_id', 'name', 'description', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 }

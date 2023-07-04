@@ -17,7 +17,7 @@ class Voucher extends Model
     protected $fillable = [
         'uuid',
         'code',
-        'desc',
+        'description',
         'type',
         'amount',
         'start_date',
@@ -29,7 +29,7 @@ class Voucher extends Model
         'publicity',
     ];
 
-    protected $visible = ['uuid', 'code', 'desc', 'type', 'amount', 'start_date', 'end_date', 'enabled', 'usage_limit_per_customer', 'quantity', 'condition', 'publicity', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['uuid', 'code', 'description', 'type', 'amount', 'start_date', 'end_date', 'enabled', 'usage_limit_per_customer', 'quantity', 'condition', 'publicity', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 
     /**
      * Get the route key for the model.

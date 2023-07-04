@@ -15,10 +15,10 @@ class OrderConfig extends Model
      */
     protected $fillable = [
         'name',
-        'desc',
+        'description',
         'value',
         'unit',
     ];
 
-    protected $visible = ['name', 'desc', 'value', 'unit', 'created_by', 'updated_by', 'created_at', 'updated_at'];
+    protected $visible = ['name', 'description', 'value', 'unit', 'created_by', 'updated_by', 'created_at', 'updated_at'];
 }
