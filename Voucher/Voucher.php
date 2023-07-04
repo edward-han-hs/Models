@@ -17,7 +17,7 @@ class Voucher extends Model
     protected $fillable = [
         'uuid',
         'code',
-        'desc',
+        'description',
         'type',
         'amount',
         'start_date',
