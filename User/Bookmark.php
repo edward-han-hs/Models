@@ -20,8 +20,8 @@ class Bookmark extends Model
     protected $fillable = [
         'uuid',
         'type',
-        'lat',
-        'long',
+        'latitude',
+        'longitude',
         'detail_address',
         'status',
     ];

@@ -18,8 +18,7 @@ class Carpark extends Model
         'uuid',
         'code',
         'name',
-        'lots',
-        'status',
+        'enabled',
         'block',
         'floor',
         'unit',
@@ -28,12 +27,16 @@ class Carpark extends Model
         'postal_code',
         'city',
         'state',
-        'lat',
-        'long',
+        'country',
+        'latitude',
+        'longitude',
+        'total_slots',
+        'available_lots',
+        'available_decks',
         'location_id',
     ];
 
-    protected $visible = ['uuid', 'code', 'name', 'lots', 'status', 'block', 'floor', 'unit', 'address_1', 'address_2', 'postal_code', 'city', 'state', 'lat', 'long', 'location_id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'vehicles'];
+    protected $visible = ['uuid', 'code', 'name', 'enabled', 'block', 'floor', 'unit', 'address_1', 'address_2', 'postal_code', 'city', 'state', 'country', 'latitude', 'longitude', 'total_slots', 'available_lots', 'available_decks', 'location_id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'vehicles'];
 
     /**
      * Get the route key for the model.
